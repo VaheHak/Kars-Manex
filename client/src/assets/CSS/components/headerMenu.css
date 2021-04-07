@@ -1,0 +1,22 @@
+.header__menu{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.header__menu_link{
+    color: white;
+    padding:5px 10px;
+    font-weight: 600;
+    text-transform: capitalize;
+    text-shadow: 1px 1px 1px black;
+}
+.header__menu_link:active{
+    color: black;
+}
+.header__menu_link.active:active{
+    color: darkgoldenrod;
+}
+.header__menu_link.active{
+    border: 4px double white;
+    color: brown;
+}

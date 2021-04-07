@@ -1,0 +1,179 @@
+.add__product {
+    width: 100%;
+    padding-top: 50px;
+    overflow: hidden;
+    background: whitesmoke;
+}
+
+.add__product .row {
+    width: 98%;
+    margin: 50px auto;
+    border: 2px solid #2c3e50;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 0 15px black;
+    border-radius: 2px;
+    background: gainsboro;
+}
+
+.add__product_categories {
+    width: 100%;
+    background: #2c3e50;
+    color: whitesmoke;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50px;
+    text-shadow: 0 0 5px black;
+    border-bottom: 2px solid #2c3e50;
+}
+
+.add__product_categories h4 {
+    width: 100%;
+    height: 50px;
+    border: 1px solid black;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add__product_area {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.add__product_section {
+    width: 24%;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.add__product_section label {
+    margin-top: 10px;
+    font-weight: 900;
+    color: #2c3e50;
+    text-shadow: 0 0 1px black;
+}
+
+.add__product_section input, .add__product_section textarea, .add__product_section select {
+    border: 1px solid #2c3e50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 10px;
+    margin-top: 5px;
+}
+
+.add__product_section input:focus, .add__product_section textarea:focus, .add__product_section select:focus {
+    outline: 1px solid #ad3c36;
+    box-shadow: 3px 3px 10px black;
+    border: none;
+}
+
+.add__product_section input[type='text'] {
+    width: 90%;
+    height: 30px;
+}
+
+.add__product_section input[type='number'] {
+    width: 50%;
+    height: 30px;
+}
+
+.add__product_section input[type='email'] {
+    width: 90%;
+    height: 30px;
+}
+
+.add__product_section input[type='file'] {
+    width: 90%;
+    padding: 10px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: transparent;
+}
+.add__product_section select {
+    width: 90%;
+    height: 30px;
+    cursor: pointer;
+}
+
+.add__product_section input[type='file']:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.add__product_section input[type='file']::-webkit-file-upload-button {
+    visibility: hidden;
+}
+
+.add__product_section input[type='file']::before {
+    content: 'Ընտրել նկար / նկարներ';
+    color: #ad3c36;
+    display: inline-block;
+    background: -webkit-linear-gradient(top, #f9f9f9, #2c3e50);
+    border: 1px solid #999;
+    border-radius: 3px;
+    padding: 30px;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    text-shadow: 1px 1px black;
+    font-weight: 700;
+    font-size: 10pt;
+    text-align: center;
+}
+
+.add__product_section input[type='file']:hover::before {
+    border-color: brown;
+}
+
+.add__product_section input[type='file']:active {
+    outline: 0;
+}
+
+.add__product_section input[type='file']:active::before {
+    background: -webkit-linear-gradient(top, #2c3e50, #f9f9f9);
+}
+
+.add__product_section textarea {
+    width: 90%;
+    height: 150px;
+    max-height: 200px;
+    resize: vertical;
+}
+
+.post__product {
+    width: 200px;
+    height: 50px;
+    border: 1px solid #2c3e50;
+    margin: 30px auto;
+    font-size: 18px;
+    font-weight: bold;
+    color: whitesmoke;
+    background: #2c3e50;
+    box-shadow: 3px 3px 3px black;
+    cursor: pointer;
+}
+
+.post__product:hover {
+    color: #ad3c36;
+    box-shadow: 3px 3px 3px white;
+    text-shadow: 1px 1px 1px black;
+}
+
+.post__product:active {
+    background: -webkit-linear-gradient(top, #2c3e50, #f9f9f9);
+}
