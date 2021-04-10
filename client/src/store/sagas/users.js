@@ -7,9 +7,10 @@ export default function* watcher() {
     yield takeEvery(userAction.POST_LOGIN_REQUEST, handlePostLogin);
 }
 
-function* handleGetUsers() {
+function* handleGetUsers(action) {
     try {
-        const {data} = yield call(Users.getUsers);
+        const {token} = action.payload;
+        const {data} = yield call(Users.getUsers, token);
         yield put({
             type: userAction.GET_USER_SUCCESS,
             payload: {

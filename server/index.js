@@ -9,6 +9,7 @@ const path = require("path");
 
 const authorization = require("./middlewares/authorization");
 const serverHost = require("./middlewares/serverHost");
+const headers = require("./middlewares/headers");
 
 app.use(cors());
 app.use(cookieParser());
@@ -19,8 +20,8 @@ app.use(morgan('combined', {stream: log}));
 app.use("/", require('./router/index'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(serverHost);
-app.use('/', authorization);
-
+app.use('/user', authorization);
+app.use(headers);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

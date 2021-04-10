@@ -1,16 +1,19 @@
-.header{
+.header {
     width: 100%;
-    background: rgba(0,0,0,0.7);
+    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5));
     color: #fff;
     position: fixed;
     left: 0;
     right: 0;
     z-index: 1000;
+    border-bottom: 1px solid darkgrey;
 }
+
 .header--dark {
-    background: rgba(0,0,0,0.7);
+    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5));
     color: #fff;
 }
+
 .header__row {
     padding: 0;
     display: -webkit-box;

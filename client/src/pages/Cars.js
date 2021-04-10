@@ -39,7 +39,7 @@ class Cars extends Component {
                     <div className='container'>
                         <section className='cars__header_content'>
                             <NavLink to='/home' className='cars__header_logo'>
-                                <img src='/images/logos/cars-logo.png' alt='Kars&Manex'/>
+                                <img src='/images/logos/car.png' alt='Kars&Manex'/>
                             </NavLink>
                             <div className='cars__search_area'>
                                 <input id="cars__search_input" placeholder="Փնտրել ..." title="Փնտրել..." type="search"

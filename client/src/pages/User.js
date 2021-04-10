@@ -4,15 +4,17 @@ import {getUserRequest} from "../store/actions/users";
 import Wrapper from "../components/Wrapper";
 import '../assets/CSS/pages/user.css'
 import Product from "../components/products/product";
+import {getProductRequest} from "../store/actions/products";
 
 class User extends Component {
     componentDidMount() {
-        this.props.getUserRequest()
+        const {loginInfo} = this.props;
+        this.props.getUserRequest(loginInfo.token)
+        this.props.getProductRequest('', '')
     }
 
     render() {
-        const {userInfo, requestStatus, loginInfo} = this.props;
-        console.log(userInfo,loginInfo)
+        const {userInfo, requestStatus, productInfo} = this.props;
         return (
             <Wrapper>
                 <section className='user__header'>
@@ -52,7 +54,7 @@ class User extends Component {
 
                                 </div>
                                 <div className='user__product_list'>
-                                    <Product/>
+                                    <Product product={productInfo}/>
                                 </div>
                             </div>
                         </div>
@@ -67,10 +69,12 @@ const mapStateToProps = (state) => ({
     userInfo: state.users.userInfo,
     requestStatus: state.users.requestStatus,
     loginInfo: state.users.loginInfo,
+    productInfo: state.products.productInfo,
 })
 
 const mapDispatchToProps = {
-    getUserRequest
+    getUserRequest,
+    getProductRequest,
 }
 
 const UsersContainer = connect(

@@ -3,6 +3,7 @@ import "../../assets/CSS/components/loginButton.css"
 import Emitter from "../../helpers/Emitter";
 import {postLoginRequest} from "../../store/actions/users";
 import {connect} from "react-redux";
+import {Redirect} from 'react-router-dom';
 
 class LoginButton extends Component {
     constructor(props) {
@@ -37,6 +38,10 @@ class LoginButton extends Component {
         }
         const {postLoginRequest, loginInfo} = this.props;
         const {email, password} = this.state;
+
+        if (loginInfo.token) {
+            return <Redirect to="/user"/>;
+        }
         return (
             <div>
                 <div style={{position: "absolute", transform: 'translate(-50%, -50%)'}}>

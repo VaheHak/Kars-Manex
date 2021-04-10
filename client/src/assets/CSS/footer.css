@@ -26,7 +26,7 @@ footer a {
     justify-content: space-between;
     align-items: flex-start;
     flex-direction: column;
-    color: #ad3c36;
+    color: #ba0101;
     font-weight: bold;
     /*width: 30%;*/
     height: 55%;
@@ -80,14 +80,14 @@ footer a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #ad3c36;
+    color: #ba0101;
     width: 30%;
 }
 
 .footer__section2:hover {
     box-shadow: 3px 3px 10px white;
     transition-duration: 2s;
-    border-color: brown;
+    border-color: #ba0101;
 }
 
 .footer__section3 {
@@ -95,7 +95,7 @@ footer a {
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
-    color: #ad3c36;
+    color: #ba0101;
     font-weight: bold;
     width: 17%;
     height: 40%;
@@ -134,14 +134,14 @@ footer a {
 }
 
 .social__item svg:hover {
-    color: #ad3c36 !important;
+    color: #ba0101 !important;
     filter: brightness(150%) hue-rotate(180deg);
 }
 
 .YMaps {
     width: 80%;
     max-width: 400px;
-    border: 3px solid #ad3c36;
+    border: 3px solid #ba0101;
     box-shadow: 3px 3px 15px black;
 }
 

@@ -40,7 +40,7 @@ class Footer extends Component {
                                         </a>
                                     </span>
                                 </div>
-                                <img className='footer__logo' src='/images/logos/5.png' alt='logo'/>
+                                <img className='footer__logo' src='/images/logos/home.png' alt='logo'/>
                             </section>
                             <section className='YMaps footer__section2'>
                                 <YMaps>
@@ -53,7 +53,7 @@ class Footer extends Component {
                                 </YMaps>
                             </section>
                             <section className="footer__section3">
-                                <h3>ՍՈՑ․ <span style={{color: "brown"}}>ԿԱՅՔԵՐ</span></h3>
+                                <h3>ՍՈՑ․ <span style={{color: "#ba0101"}}>ԿԱՅՔԵՐ</span></h3>
                                 <div className='row'>
                                     <a target="_blank" href="https://www.facebook.com/karsandmanex/"
                                        className="social__item"

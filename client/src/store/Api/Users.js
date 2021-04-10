@@ -1,20 +1,29 @@
 import axios from "axios";
 
+const api = axios.create({
+    baseURL: `http://localhost:5000`,
+    headers: {},
+});
+
 class Users {
 
-    static getUsers() {
-        return axios.get(`${window.server}/profile`)
+    static getUsers(token) {
+        return api.get(`http://localhost:5000/profile`, {
+            headers: {
+                authorization: token,
+            }
+        })
     }
 
     static login(email, password) {
-        return axios.post(`${window.server}/login`, {
+        return api.post(`/login`, {
             email,
             password,
         })
     }
 
     static postUsers(email, firstName, lastName, work, phone, password) {
-        return axios.post(`${window.server}/register`, {
+        return api.post(`/register`, {
             email: email,
             firstName: firstName,
             lastName: lastName,

@@ -53,7 +53,7 @@ class Home extends Component {
                             <div className='home__banner_content'>
                                 <div className='row'>
                                     <NavLink to='/home' className='home__banner_logo'>
-                                        <img src='/images/logos/logo.png' alt='Kars&Manex'/>
+                                        <img src='/images/logos/home.png' alt='Kars&Manex'/>
                                     </NavLink>
                                     <h3>ՓՆՏՐԻՐ <span/> ԳՏԻՐ <span/> ԳՆԻՐ</h3>
                                 </div>
@@ -80,7 +80,7 @@ class Home extends Component {
                                                                 value={value ? value.id : 1}
                                                                 className='categoryParts__option'
                                                         >
-                                                            {value?.icon}
+                                                            {value?.icon}.
                                                             {value ? value.c_name : 'Անշարժ գույք'}
                                                         </option>
                                                     ))}

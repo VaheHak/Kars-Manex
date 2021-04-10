@@ -74,7 +74,7 @@
 }
 
 .add__product_section input:focus, .add__product_section textarea:focus, .add__product_section select:focus {
-    outline: 1px solid #ad3c36;
+    outline: 1px solid #ba0101;
     box-shadow: 3px 3px 10px black;
     border: none;
 }
@@ -103,6 +103,7 @@
     align-items: center;
     color: transparent;
 }
+
 .add__product_section select {
     width: 90%;
     height: 30px;
@@ -120,7 +121,7 @@
 
 .add__product_section input[type='file']::before {
     content: 'Ընտրել նկար / նկարներ';
-    color: #ad3c36;
+    color: #ba0101;
     display: inline-block;
     background: -webkit-linear-gradient(top, #f9f9f9, #2c3e50);
     border: 1px solid #999;
@@ -137,7 +138,8 @@
 }
 
 .add__product_section input[type='file']:hover::before {
-    border-color: brown;
+    border-color: #ba0101;
+    transition-duration: 0.2s;
 }
 
 .add__product_section input[type='file']:active {
@@ -169,9 +171,10 @@
 }
 
 .post__product:hover {
-    color: #ad3c36;
+    color: #ba0101;
     box-shadow: 3px 3px 3px white;
     text-shadow: 1px 1px 1px black;
+    transition-duration: 0.2s;
 }
 
 .post__product:active {

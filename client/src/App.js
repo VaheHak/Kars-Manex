@@ -4,7 +4,7 @@ import Home from "./pages/Home";
 import User from "./pages/User";
 import Houses from "./pages/Houses";
 import Cars from "./pages/Cars";
-import Constructions from "./pages/Constructions";
+import Shop from "./pages/Shop";
 import Contact from "./pages/Contact";
 import AboutUs from "./pages/AboutUs";
 import AddProduct from "./pages/AddProduct";
@@ -21,8 +21,8 @@ class App extends Component {
                     <Route path="/house/:page" exact component={Houses}/>
                     <Route path="/cars" exact component={Cars}/>
                     <Route path="/cars/:page" exact component={Cars}/>
-                    <Route path="/construction" exact component={Constructions}/>
-                    <Route path="/construction/:page" exact component={Constructions}/>
+                    <Route path="/shop" exact component={Shop}/>
+                    <Route path="/shop/:page" exact component={Shop}/>
                     <Route path="/aboutUs" exact component={AboutUs}/>
                     <Route path="/contact" exact component={Contact}/>
                     <Route path="/user" exact component={User}/>

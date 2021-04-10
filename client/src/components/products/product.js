@@ -8,19 +8,21 @@ import {faWindowClose} from "@fortawesome/free-solid-svg-icons";
 class Product extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            selectedItem: '',
-        }
+        this.state = {}
     }
 
-    handleZoom = (event) => {
-        this.setState({selectedItem: event.currentTarget.dataset.id});
-        // this.zoom.style.display = 'block';
+    handleZoom = (e) => {
+        const {product} = this.props;
+        const pro = product.product;
+        const i = pro.findIndex(r => r.id === e)
+        if (i > -1) {
+            this.p_name.innerText = pro[i].p_name;
+            this.zoom.style.display = 'block';
+        }
     }
 
     render() {
         const {requestStatus, product, rateInfo, style} = this.props;
-        const {selectedItem} = this.state;
         return (
             <>
                 {requestStatus === 'request' ? 'Տվյալների բեռնում...' :
@@ -28,9 +30,10 @@ class Product extends Component {
                         <div className="listing__item" key={key} style={style}>
                             <div className="properties__item" data-sr-id="2">
                                 <div className="properties__thumb">
-                                    <div data-id={val.id} onClick={(e) => this.handleZoom(e)}
+                                    <div data-id={val.id} onClick={() => this.handleZoom(val.id)}
                                          className="item-photo">
-                                        <img src="http://realtyspace.codefactory47.com/app/uploads/2016/04/15-554x360-c-center.jpg"
+                                        <img
+                                            src="http://realtyspace.codefactory47.com/app/uploads/2016/04/15-554x360-c-center.jpg"
                                             alt={val.p_name}/>
                                         <figure className="item-photo__hover item-photo__hover--params">
                                             <span className="properties__params">{val.category_section.name}</span>
@@ -57,36 +60,40 @@ class Product extends Component {
                                     <div className="properties__offer">
                                         <div className="properties__offer-column">
                                             <div className="properties__offer-value">
-                                                <strong>{Utils.formatPrice(val.price, rateInfo)}</strong>
+                                                <strong>
+                                                    {rateInfo ? Utils.formatPrice(val.price, rateInfo):
+                                                        <div className='priceLoad'>
+                                                            {Utils.formatPrice(val.price, rateInfo)}
+                                                        </div>}
+                                                </strong>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            {selectedItem === val.id ? (
-                                <div ref={(ref) => this.zoom = ref} className='container zoom__container'
-                                     style={{display: 'block'}}>
-                                    <div className='zoom__content'>
-                                        <div className='photos__content'>
-                                            <img src='http://realtyspace.codefactory47.com/app/uploads/2016/04/15-554x360-c-center.jpg'
-                                                alt={val.p_name}/>
-                                            <div>
 
-                                            </div>
-                                        </div>
-                                        <div className='info__content'>
-
-                                        </div>
-                                        <button className="close__button" type='button'
-                                                onClick={() => this.zoom.style.display = 'none'}>
-                                            <FontAwesomeIcon className='faWindowClose' icon={faWindowClose}/>
-                                        </button>
-                                    </div>
-                                </div>
-                            ) : null}
                         </div>
                     )) : 'Տվյալների սխալ կամ բացակայություն'}
+                <div ref={(ref) => this.zoom = ref} className='container zoom__container'
+                     style={{display: 'none'}}>
+                    <div className='zoom__content'>
+                        <div className='photos__content'>
+                            <img
+                                src='http://realtyspace.codefactory47.com/app/uploads/2016/04/15-554x360-c-center.jpg'
+                                alt=''/>
+                            <div>
 
+                            </div>
+                        </div>
+                        <div className='info__content'>
+                            <h3 ref={(ref) => this.p_name = ref}>Չկա</h3>
+                        </div>
+                        <button className="close__button" type='button'
+                                onClick={() => this.zoom.style.display = 'none'}>
+                            <FontAwesomeIcon className='faWindowClose' icon={faWindowClose}/>
+                        </button>
+                    </div>
+                </div>
             </>
         );
     }
@@ -94,18 +101,21 @@ class Product extends Component {
 }
 
 
-const mapStateToProps = (state) => ({
-        requestStatus: state.products.requestStatus,
-        rateInfo: state.converter.rateInfo,
-    }
+const
+    mapStateToProps = (state) => ({
+            requestStatus: state.products.requestStatus,
+            rateInfo: state.converter.rateInfo,
+        }
 
-)
+    )
 
-const mapDispatchToProps = {}
+const
+    mapDispatchToProps = {}
 
-const ProductContainer = connect(
-    mapStateToProps,
-    mapDispatchToProps,
-)(Product)
+const
+    ProductContainer = connect(
+        mapStateToProps,
+        mapDispatchToProps,
+    )(Product)
 
 export default ProductContainer;

@@ -142,8 +142,8 @@ svg:not(:root) {
     position: relative;
     border: none;
     border-bottom: 4px solid darkred;
-    background: brown;
-    color: #222;
+    background: #ba0101;
+    color: #1a1a1a;
 }
 
 .login_footer {

@@ -67,7 +67,7 @@
     border-radius: 50%;
     background: whitesmoke;
     margin: 0 7px;
-    box-shadow: 1px 1px 3px brown;
+    box-shadow: 1px 1px 3px #ba0101;
 }
 
 .arrow__container {
@@ -84,7 +84,7 @@
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
     position: relative;
-    color: brown;
+    color: #ba0101;
     transition-duration: 5s;
     text-shadow: 3px 3px 3px black;
 }
@@ -266,6 +266,7 @@
 .form__submit:hover {
     border-bottom: 4px solid brown;
     color: white;
+    transition-duration: 0.2s;
 }
 
 #dropdown-toggle\ js-select-checkboxes-btn1 {
@@ -302,7 +303,7 @@
     font-size: 12px;
     font-weight: 600;
     color: #fff;
-    text-shadow: 1px 1px 3px red;
+    text-shadow: 1px 1px 3px #ba0101;
 }
 
 

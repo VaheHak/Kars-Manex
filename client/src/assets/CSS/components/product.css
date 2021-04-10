@@ -24,7 +24,7 @@
 }
 
 .properties__item:hover .properties__offer {
-    color: #ad3c36;
+    color: #ba0101;
 }
 
 .properties__item:hover .divider--dotted {
@@ -135,7 +135,7 @@ figure {
 }
 
 .properties__time {
-    color: #ad3c36;
+    color: #ba0101;
     font-style: italic;
     margin-top: 15px;
     display: block;
@@ -165,7 +165,7 @@ figure {
 .properties__ribon {
     position: absolute;
     right: -10px;
-    background: #ad3c36;
+    background: #ba0101;
     color: #fff;
     text-transform: uppercase;
     padding: 3px 15px;
@@ -177,7 +177,7 @@ figure {
     position: absolute;
     right: 0;
     bottom: -5px;
-    border-top: 5px solid #ad3c36;
+    border-top: 5px solid #ba0101;
     width: 5px;
     content: " ";
     display: block;
@@ -247,11 +247,12 @@ strong {
 }
 
 /*zoom*/
-.zoom__container{
+.zoom__container {
     position: absolute;
     z-index: 100;
 }
-.zoom__content{
+
+.zoom__content {
     width: 100%;
     margin: 100px auto;
     padding: 50px;
@@ -260,15 +261,32 @@ strong {
     color: whitesmoke;
     position: relative;
 }
-.close__button{
+
+.close__button {
     position: absolute;
-    top:10px;
+    top: 10px;
     right: 10px;
     width: 30px;
     height: 30px;
     cursor: pointer;
 }
-.faWindowClose{
+
+.faWindowClose {
     width: 100% !important;
     height: 100% !important;
+}
+
+.priceLoad {
+    animation-name: priceLoad;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+}
+
+@keyframes priceLoad {
+    from {
+        color: #ba0101;
+    }
+    to {
+        color: #2c3e50;
+    }
 }

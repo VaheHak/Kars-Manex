@@ -39,7 +39,7 @@ class Houses extends Component {
                     <div className='container'>
                         <section className='house__header_content'>
                             <NavLink to='/home' className='house__header_logo'>
-                                <img src='/images/logos/logo.png' alt='Kars&Manex'/>
+                                <img src='/images/logos/house.png' alt='Kars&Manex'/>
                             </NavLink>
                             <div className='search__area'>
                                 <input id="search-input" placeholder="Փնտրել ..." title="Փնտրել..." type="search"

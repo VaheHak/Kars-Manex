@@ -20,7 +20,7 @@
 
 .cars__header_logo {
     width: 30%;
-    color: #ad3c36;
+    color: #ba0101;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -53,7 +53,7 @@
     box-shadow: 2px 2px 5px black;
     font-weight: bold;
     background: linear-gradient(black, rgba(245, 245, 245, 0.3), white);
-    color: brown;
+    color: #ba0101;
 }
 
 #cars__search_input:hover {
@@ -67,7 +67,7 @@
     border: none;
     box-shadow: 2px 2px 5px black;
     font-weight: bold;
-    background: linear-gradient(brown, rgba(165, 42, 42, 0.3), #ad3c36);
+    background: linear-gradient(#ba0101, rgba(186, 1, 1, 0.3), #ba0101);
     text-transform: uppercase;
     color: whitesmoke;
 }
