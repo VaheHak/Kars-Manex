@@ -5,16 +5,19 @@ import Wrapper from "../components/Wrapper";
 import '../assets/CSS/pages/user.css'
 import Product from "../components/products/product";
 import {getProductRequest} from "../store/actions/products";
+import {Redirect} from "react-router-dom";
 
 class User extends Component {
     componentDidMount() {
-        const {loginInfo} = this.props;
-        this.props.getUserRequest(loginInfo.token)
+        this.props.getUserRequest();
         this.props.getProductRequest('', '')
     }
 
     render() {
-        const {userInfo, requestStatus, productInfo} = this.props;
+        const {myAccount, requestStatus, productInfo, token} = this.props;
+        if (!token) {
+            return <Redirect to="/login"/>;
+        }
         return (
             <Wrapper>
                 <section className='user__header'>
@@ -22,17 +25,17 @@ class User extends Component {
                         <div className='user__header_content'>
                             {requestStatus === 'request' ? 'Տվյալների բեռնում...' :
                                 requestStatus === 'success' ? (
-                                    <div className="user_profile" id={userInfo.user?.id}>
+                                    <div className="user_profile" id={myAccount?.id}>
                                         <div className='image__name'>
                                             <img src='/images/banner/banner.jpg' alt='User_image'/>
-                                            <h4 className='user__name'>{userInfo.user?.firstName} &ensp;{userInfo.user?.lastName}</h4>
+                                            <h4 className='user__name'>{myAccount?.firstName} &ensp;{myAccount?.lastName}</h4>
                                         </div>
                                         <div className='contact__data'>
-                                            <h4>Գործունեթյունը։&ensp;<i>{userInfo.user?.work}</i></h4>
-                                            <a href={`tel:${userInfo.user?.phone}`}> Հեռ:&ensp;
-                                                <i>{userInfo.user?.phone}</i></a>
-                                            <a href={`mailto:${userInfo.user?.email}`} target="_blank" rel="noreferrer">
-                                                Էլ. փոստ:&ensp;<i>{userInfo.user?.email}</i>
+                                            <h4>Գործունեթյունը։&ensp;<i>{myAccount?.work}</i></h4>
+                                            <a href={`tel:${myAccount?.phone}`}> Հեռ:&ensp;
+                                                <i>{myAccount?.phone}</i></a>
+                                            <a href={`mailto:${myAccount?.email}`} target="_blank" rel="noreferrer">
+                                                Էլ. փոստ:&ensp;<i>{myAccount?.email}</i>
                                             </a>
                                         </div>
                                     </div>
@@ -66,9 +69,9 @@ class User extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    userInfo: state.users.userInfo,
     requestStatus: state.users.requestStatus,
-    loginInfo: state.users.loginInfo,
+    myAccount: state.users.myAccount,
+    token: state.users.token,
     productInfo: state.products.productInfo,
 })
 

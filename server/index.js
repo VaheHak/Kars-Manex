@@ -20,7 +20,7 @@ app.use(morgan('combined', {stream: log}));
 app.use("/", require('./router/index'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(serverHost);
-app.use('/user', authorization);
+app.use('/', authorization);
 app.use(headers);
 
 // catch 404 and forward to error handler
@@ -39,7 +39,8 @@ app.use((err, req, res, next) => {
     res.json({
         status: 'error',
         message: err.message,
-        stack: err.stack
+        stack: err.stack,
+        errors: err.errors,
     });
 });
 

@@ -13,6 +13,22 @@
     text-shadow: 1px 1px 1px black;
 }
 
+.header__menu_link:hover {
+    color: lightgrey;
+    transition: all 0.2s;
+}
+
+.header__menu_link#shop {
+    color: red;
+    text-shadow: 1px 1px 1px white;
+    border-radius: 30px;
+}
+
+.header__menu_link#shop:hover {
+    color: whitesmoke;
+    transition: all 0.5s;
+}
+
 .header__menu_link:active {
     color: black;
 }
@@ -21,16 +37,19 @@
     color: darkgoldenrod;
 }
 
-.header__menu_link.active {
+.header__menu_link.active,
+.header__menu_link.active#shop {
     height: 50%;
     line-height: 0.8;
     border-left: 2px solid white;
     border-right: 2px solid white;
     color: white;
-    background: linear-gradient(rgba(186, 1, 1, 0.1),rgba(186, 1, 1, 0.9),rgba(186, 1, 1, 0.1));
+    background: linear-gradient(rgba(186, 1, 1, 0.1), rgba(186, 1, 1, 0.9), rgba(186, 1, 1, 0.1));
 }
-.header__menu_link.active:hover {
+
+.header__menu_link.active:hover,
+.header__menu_link.active#shop:hover {
     color: black;
-    background: linear-gradient(rgba(186, 1, 1, 0.5),rgba(245, 245, 245, 0.9),rgba(186, 1, 1, 0.5));
+    background: linear-gradient(rgba(186, 1, 1, 0.5), rgba(255, 255, 255, 1), rgba(186, 1, 1, 0.5));
     transition-duration: 0.5s;
 }

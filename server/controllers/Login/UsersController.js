@@ -1,4 +1,5 @@
 const HttpError = require('http-errors');
+const fs = require('fs');
 const jwt = require("jsonwebtoken");
 const Users = require("../../models/Users/user");
 
@@ -8,9 +9,9 @@ class UsersController {
 
     static profile = async (req, res, next) => {
         try {
-            const user = await Users.findByPk(req.userId);
+            await Users.findByPk(req.userId);
             res.json({
-                user
+                status:"Ձեր մուտքը հաջողվել է"
             });
         } catch (e) {
             next(e);
@@ -18,7 +19,8 @@ class UsersController {
     }
     static register = async (req, res, next) => {
         try {
-            const {firstName, lastName, work, file, email, phone, password} = req.body;
+            const {file} = req;
+            const {firstName, lastName, work, email, phone, password} = req.body;
             const user = await Users.create({
                 firstName, lastName, work, email, phone, password
             });
@@ -28,16 +30,17 @@ class UsersController {
                 'image/gif': '.gif'
             }
 
-            const imageDir = `public/images/${user.id}/`;
-            if (!fs.existsSync(imageDir)) {
-                fs.mkdirSync(imageDir, {recursive: true})
+            if (file) {
+                const imageDir = `public/images/${user.id}/`;
+                if (!fs.existsSync(imageDir)) {
+                    fs.mkdirSync(imageDir, {recursive: true})
+                }
+                const avatar = file.fieldname + '-' + Date.now() + fileTypes[file.mimetype];
+                fs.writeFileSync(imageDir + avatar, file.buffer);
+
+                user.avatar = avatar;
+                await user.save();
             }
-            const avatar = file.fieldname + '-' + Date.now() + fileTypes[file.mimetype];
-            fs.writeFileSync(imageDir + avatar, file.buffer);
-
-            user.avatar = avatar;
-            await user.save();
-
             res.json({
                 status: 'ok',
                 user

@@ -4,7 +4,6 @@ import {connect} from "react-redux";
 import {getProductRequest} from "../store/actions/products";
 import Product from "../components/products/product";
 import '../assets/CSS/pages/cars.css'
-import {NavLink} from "react-router-dom";
 
 class Cars extends Component {
     constructor(props) {
@@ -38,9 +37,6 @@ class Cars extends Component {
                      onKeyPress={e => this.search(e)}>
                     <div className='container'>
                         <section className='cars__header_content'>
-                            <NavLink to='/home' className='cars__header_logo'>
-                                <img src='/images/logos/car.png' alt='Kars&Manex'/>
-                            </NavLink>
                             <div className='cars__search_area'>
                                 <input id="cars__search_input" placeholder="Փնտրել ..." title="Փնտրել..." type="search"
                                        onChange={e => this.handleSearch(e.target.value)}/>

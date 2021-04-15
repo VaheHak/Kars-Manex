@@ -1,6 +1,7 @@
 const Product = require("../models/Product/product");
 const HomeFilter = require("../models/Filters/homeFilters");
 const CarFilter = require("../models/Filters/carFilters");
+const Category = require("../models/Categories/category");
 const Category_department = require("../models/Categories/category_department");
 const Category_section = require("../models/Categories/category_section");
 
@@ -17,9 +18,14 @@ class ProductController {
                     model: CarFilter,
                     as: 'carFilter',
                 }, {
+                    model: Category,
+                    as: 'category',
+                }, {
                     model: Category_department,
+                    as: 'categoryDep',
                 }, {
                     model: Category_section,
+                    as: 'categorySec',
                 }],
                 where: [{
                     $and: [
@@ -53,9 +59,14 @@ class ProductController {
                     model: CarFilter,
                     as: 'carFilter',
                 }, {
+                    model: Category,
+                    as: 'category',
+                }, {
                     model: Category_department,
+                    as: 'categoryDep',
                 }, {
                     model: Category_section,
+                    as: 'categorySec',
                 }],
                 where: [{
                     star: star

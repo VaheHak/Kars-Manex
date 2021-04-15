@@ -6,7 +6,6 @@ const admin = require('./admin')
 const components = require('./components')
 const categories = require('./categories')
 const product = require('./product')
-// const users = require('./user')
 
 router.use('/', users);
 router.use('/', admin);

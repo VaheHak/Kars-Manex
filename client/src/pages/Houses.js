@@ -3,8 +3,7 @@ import Wrapper from "../components/Wrapper";
 import {connect} from "react-redux";
 import {getProductRequest} from "../store/actions/products";
 import Product from "../components/products/product";
-import '../assets/CSS/pages/house.css'
-import {NavLink} from "react-router-dom";
+import '../assets/CSS/pages/house.css';
 
 class Houses extends Component {
     constructor(props) {
@@ -38,9 +37,6 @@ class Houses extends Component {
                      onKeyPress={e => this.search(e)}>
                     <div className='container'>
                         <section className='house__header_content'>
-                            <NavLink to='/home' className='house__header_logo'>
-                                <img src='/images/logos/house.png' alt='Kars&Manex'/>
-                            </NavLink>
                             <div className='search__area'>
                                 <input id="search-input" placeholder="Փնտրել ..." title="Փնտրել..." type="search"
                                        onChange={e => this.handleSearch(e.target.value)}/>

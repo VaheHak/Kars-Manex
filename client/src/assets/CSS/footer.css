@@ -69,11 +69,19 @@ footer a {
 }
 
 .footer__logo {
-    width: 200px;
+    width: 270px;
     height: 70px;
-    object-fit: cover;
-    box-shadow: 3px 3px 3px black;
-    border-radius: 2px;
+    object-fit: fill;
+    border-radius: 8px;
+    filter: contrast(0.8) drop-shadow(2px 4px 6px black);
+    opacity: 0.5;
+}
+
+.footer__logo:hover {
+    opacity: 1;
+    filter: contrast(1) drop-shadow(2px 4px 6px black);
+    cursor: pointer;
+    border: 1px solid black;
 }
 
 .footer__section2 {
@@ -166,4 +174,32 @@ footer a {
 
 .footer__copyright p {
     font-size: 14px;
+}
+
+.toTop {
+    position: fixed;
+    right: 20px;
+    bottom: 70px;
+    width: 0;
+    height: 0;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 50px solid #ba0101;
+    color: white;
+    z-index: 100;
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+.toTop svg {
+    position: fixed;
+    right: 38px;
+    bottom: 80px;
+}
+
+.toTop:hover {
+    color: #1a1a1a;
+    border-bottom: 50px solid darkred;
 }

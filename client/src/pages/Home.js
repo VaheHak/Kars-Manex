@@ -7,8 +7,6 @@ import {NavLink} from "react-router-dom";
 import _ from "lodash";
 import Product from "../components/products/product";
 import {getStarRequest} from "../store/actions/products";
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faLongArrowAltRight} from "@fortawesome/free-solid-svg-icons";
 
 class Home extends Component {
     constructor(props) {
@@ -47,7 +45,7 @@ class Home extends Component {
         const page = x?.link;
         return (
             <Wrapper>
-                <div className="home__header_content" style={{background: `url('./images/banner/banner.jpg')`}}>
+                <div className="home__header_content" style={{background: `url('./images/banner/banner-1.jpg')`}}>
                     <div className='container'>
                         <section className='home__banner'>
                             <div className='home__banner_content'>
@@ -56,9 +54,6 @@ class Home extends Component {
                                         <img src='/images/logos/home.png' alt='Kars&Manex'/>
                                     </NavLink>
                                     <h3>ՓՆՏՐԻՐ <span/> ԳՏԻՐ <span/> ԳՆԻՐ</h3>
-                                </div>
-                                <div className='arrow__container'>
-                                    <FontAwesomeIcon icon={faLongArrowAltRight} className='home__banner_arrow'/>
                                 </div>
                             </div>
                             <div className="banner__search">
@@ -157,7 +152,7 @@ class Home extends Component {
                                 </form>
                             </div>
                         </section>
-                        <div className="banner__scroll-down">
+                        <a href={'#HomeProductContent'} className="banner__scroll-down">
                             <svg className="banner__scroll-svg" version="1.1" id="Layer_1"
                                  xmlns="http://www.w3.org/2000/svg"
                                  xmlnsXlink="http://www.w3.org/1999/xlink" x="0px"
@@ -169,10 +164,11 @@ class Home extends Component {
                                 </g>
                             </svg>
                             <div className="banner__scroll-text">Իջնել ներքև</div>
-                        </div>
+                        </a>
                     </div>
                 </div>
-                <div className='home__central_content' style={{background: `url('./images/banner/map.gif')`}}>
+                <main id="HomeProductContent" className='home__central_content'
+                      style={{background: `url('./images/banner/map.gif')`}}>
                     <div className='container'>
                         <h1 className='central__content_title'>ԼԱՎԱԳՈՒՅՆ ԱՌԱՋԱՐԿՆԵՐԸ</h1>
                         <h5 className='central__content_subtitle'>ՄԵՆՔ ԱՌԱՋԱՐԿՈՒՄ ԵՆՔ ՀԱՅԱՍՏԱՆԻ ԼԱՎԱԳՈՒՅՆ ԱՆՇԱՐԺ ԵՎ
@@ -181,7 +177,7 @@ class Home extends Component {
                             <Product product={staredInfo}/>
                         </div>
                     </div>
-                </div>
+                </main>
             </Wrapper>
         );
     }

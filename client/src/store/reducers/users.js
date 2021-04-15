@@ -1,9 +1,11 @@
 import * as userAction from "../actions/users";
+import Account from '../../helpers/Account';
 
 const initialState = {
     requestStatus: '',
-    userInfo: [],
     loginInfo: '',
+    myAccount: Account.get(),
+    token: Account.getToken(),
 }
 
 export default function reducer(state = initialState, action) {
@@ -12,7 +14,7 @@ export default function reducer(state = initialState, action) {
         case userAction.GET_USER_REQUEST: {
             return {
                 ...state,
-                userInfo: [],
+                loginInfo: '',
                 requestStatus: 'request',
             }
         }
@@ -20,7 +22,7 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state,
                 requestStatus: 'success',
-                userInfo: action.payload.data
+                loginInfo: action.payload.data
             }
         }
         case userAction.GET_USER_FAIL: {
@@ -32,15 +34,20 @@ export default function reducer(state = initialState, action) {
         case userAction.POST_LOGIN_REQUEST: {
             return {
                 ...state,
-                loginInfo: '',
+                token: '',
+                myAccount: {},
                 requestStatus: 'request',
             }
         }
         case userAction.POST_LOGIN_SUCCESS: {
+            const {token, user: myAccount} = action.payload.data;
+            Account.set(myAccount);
+            Account.setToken(token);
             return {
                 ...state,
                 requestStatus: 'success',
-                loginInfo: action.payload.data
+                token,
+                myAccount
             }
         }
         case userAction.POST_LOGIN_FAIL: {

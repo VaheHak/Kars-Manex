@@ -5,17 +5,6 @@
     background-position: bottom !important;
     background-repeat: no-repeat !important;
     background-size: cover !important;
-    animation: filter 10s;
-    animation-iteration-count: 3;
-}
-
-@keyframes filter {
-    from {
-        filter: hue-rotate(0);
-    }
-    to {
-        filter: hue-rotate(90deg);
-    }
 }
 
 .home__banner {
@@ -36,17 +25,19 @@
 }
 
 .home__banner_logo {
-    width: 50%;
+    width: 70%;
+    height: 100px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    box-shadow: 3px 3px 12px black;
+    border-radius: 50px;
 }
 
 .home__banner_logo img {
-    width: 100%;
-    height: 70px;
+    width: 95%;
+    height: 90px;
     object-fit: cover;
-    box-shadow: 3px 3px 12px black;
     border-radius: 50px;
 }
 
@@ -68,35 +59,6 @@
     background: whitesmoke;
     margin: 0 7px;
     box-shadow: 1px 1px 3px #ba0101;
-}
-
-.arrow__container {
-    width: 100%;
-}
-
-.home__banner_arrow {
-    font-size: 100px;
-    margin: 0 auto;
-    animation-name: arrow;
-    animation-duration: 5s;
-    animation-delay: 2s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: forwards;
-    position: relative;
-    color: #ba0101;
-    transition-duration: 5s;
-    text-shadow: 3px 3px 3px black;
-}
-
-@keyframes arrow {
-    from {
-        left: 30%;
-    }
-    to {
-        left: 80%;
-        color: darkred;
-    }
 }
 
 .home__banner_content .row {
@@ -264,23 +226,14 @@
 }
 
 .form__submit:hover {
-    border-bottom: 4px solid brown;
+    border-bottom: 4px solid #ba0101;
     color: white;
     transition-duration: 0.2s;
 }
 
-#dropdown-toggle\ js-select-checkboxes-btn1 {
-    font-weight: bold;
-}
-
-#dropdown-toggle\ js-select-checkboxes-btn2 {
-    font-weight: 900;
-}
-
-#dropdown-toggle\ js-select-checkboxes-btn3 {
-    font-weight: 900;
-}
-
+#dropdown-toggle\ js-select-checkboxes-btn1,
+#dropdown-toggle\ js-select-checkboxes-btn2,
+#dropdown-toggle\ js-select-checkboxes-btn3,
 #dropdown-toggle\ js-select-checkboxes-btn4 {
     font-weight: 900;
 }
@@ -303,9 +256,8 @@
     font-size: 12px;
     font-weight: 600;
     color: #fff;
-    text-shadow: 1px 1px 3px #ba0101;
+    text-shadow: 1px 1px 1px #ba0101;
 }
-
 
 /*center*/
 .home__central_content {
@@ -319,7 +271,7 @@
 .central__content_title {
     display: block;
     font-size: 46px;
-    color: #ad3c36;
+    color: #ba0101;
     font-weight: 600;
     text-transform: uppercase;
     margin: 50px auto;

@@ -18,7 +18,7 @@ class HeaderMenu extends Component {
                         <NavLink
                             className='header__menu_link'
                             key={key} to={`/${val.link}`}
-                            id={val.page_id}
+                            id={val.link}
                         >{val.name}</NavLink>
                     )) : 'Please load page again'}
             </menu>

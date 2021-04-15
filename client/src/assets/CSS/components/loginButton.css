@@ -6,8 +6,9 @@
     font-size: 14px;
     cursor: pointer;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: flex-start;
+    color: white;
 }
 
 .dropdown-toggle.auth__nav-btn:active {
@@ -141,7 +142,7 @@ svg:not(:root) {
     font-size: 15px;
     position: relative;
     border: none;
-    border-bottom: 4px solid darkred;
+    border-bottom: 4px solid #540000;
     background: #ba0101;
     color: #1a1a1a;
 }
@@ -197,3 +198,56 @@ input[type=checkbox].in-checkbox:checked + label:before {
 .form__remember, .form__options.form__options--forgot {
     width: 50%;
 }
+
+/*Account*/
+.user_login_down{
+    margin-left: 7px;
+}
+.user__menuHeader_row{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.menu__user_avatar{
+    width: 30%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid #2c3e50;
+}
+.user__info_row{
+    width: 65%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.myAccount__name{
+    text-transform: uppercase;
+}
+.myAccount__email{
+    text-transform: lowercase;
+    color: grey;
+}
+.myAccount__menu_links{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+.myAccount__menu_link{
+    width: 100%;
+    padding: 8px;
+    color: #484848;
+    border-top: 1px solid grey;
+    font-size: 15px;
+}
+.myAccount__menu_link:last-child{
+    border-bottom: 1px solid grey;
+}
+

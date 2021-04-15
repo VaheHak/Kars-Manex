@@ -125,8 +125,8 @@ figure {
     font-size: 14px;
     margin-top: 5px;
     display: block;
-    max-width: 90%;
-    width: 90%;
+    max-width: 85%;
+    width: 85%;
 }
 
 .item-photo__hover--params .properties__time {
@@ -246,20 +246,126 @@ strong {
     text-transform: uppercase;
 }
 
+.priceLoad {
+    animation-name: priceLoad;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+}
+
+@keyframes priceLoad {
+    from {
+        color: #ba0101;
+    }
+    to {
+        color: #2c3e50;
+    }
+}
+
 /*zoom*/
 .zoom__container {
     position: absolute;
-    z-index: 100;
+    z-index: 1000;
+    transition: all 100ms linear 200ms;
+    visibility: visible;
+    opacity: 1;
+}
+
+.zoom_hidden {
+    position: absolute;
+    z-index: -1;
+    visibility: hidden;
+    opacity: 0;
 }
 
 .zoom__content {
-    width: 100%;
-    margin: 100px auto;
+    width: 95%;
+    height: 87%;
     padding: 50px;
-    background: black;
-    opacity: 0.8;
+    background: rgba(0, 0, 0, 0.9);
     color: whitesmoke;
-    position: relative;
+    position: fixed;
+    left: 2.5%;
+    right: 2.5%;
+    top: 10%;
+    overflow: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.photos__content {
+    width: 49%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.photos__content img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    border: 1px dotted white;
+}
+
+.info__content {
+    width: 49%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.info__content_title {
+    color: white;
+    text-decoration: underline;
+    text-underline-position: under;
+    text-decoration-color: #ba0101;
+    text-transform: uppercase;
+}
+
+.info__content_description {
+    text-indent: 30px;
+    text-align: justify;
+    padding-bottom: 30px;
+}
+
+.product__info_table {
+    width: 100%;
+    color: black;
+    border-collapse: collapse;
+}
+
+.product__info_tbody {
+    border-bottom: 5px solid black;
+    background: #ba0101;
+}
+
+.product__info_table tr {
+    width: 100%;
+}
+
+.product__info_table tr:nth-child(even) {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.product__info_table tr:nth-child(odd) {
+    background-color: rgba(221, 221, 221, 0.7);
+}
+
+.product__info_table td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
+.product__info_table td:nth-child(even) {
+    text-align: right;
+    font-weight: bold;
 }
 
 .close__button {
@@ -276,17 +382,3 @@ strong {
     height: 100% !important;
 }
 
-.priceLoad {
-    animation-name: priceLoad;
-    animation-duration: 2s;
-    animation-iteration-count: 1;
-}
-
-@keyframes priceLoad {
-    from {
-        color: #ba0101;
-    }
-    to {
-        color: #2c3e50;
-    }
-}

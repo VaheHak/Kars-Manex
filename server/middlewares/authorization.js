@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const {JWT_SECRET} = process.env;
 const EXCLUDE = [
     '/login',
+    '/register',
 ]
 
 module.exports = function authorization(req, res, next) {

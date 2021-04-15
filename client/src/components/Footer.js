@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Map, Placemark, YMaps} from "react-yandex-maps";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {
     faFacebookF,
     faInstagram,
@@ -9,9 +9,40 @@ import {
     faViber,
     faWhatsapp,
 } from '@fortawesome/free-brands-svg-icons';
-import {faPhone, faMapMarkerAlt, faAt} from '@fortawesome/free-solid-svg-icons';
+import {faPhone, faMapMarkerAlt, faAt, faArrowUp} from '@fortawesome/free-solid-svg-icons';
+import {animateScroll, Events, scrollSpy} from 'react-scroll';
 
 class Footer extends Component {
+    componentDidMount() {
+        window.addEventListener('scroll', this.handleScroll);
+        Events.scrollEvent.register('begin');
+        Events.scrollEvent.register('end');
+        scrollSpy.update();
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this.handleScroll);
+        Events.scrollEvent.remove('begin');
+        Events.scrollEvent.remove('end');
+    }
+
+    scrollToTop() {
+        animateScroll.scrollToTop({
+            duration: 800,
+            smooth: 'linear',
+        });
+    }
+
+    handleScroll = () => {
+        const scrollY = window.scrollY;
+        if (scrollY > 300) {
+            this.toTop.style.visibility = 'visible';
+            this.toTop.style.opacity = 1;
+        } else {
+            this.toTop.style.visibility = 'hidden';
+            this.toTop.style.opacity = 0;
+        }
+    }
 
     render() {
         return (
@@ -40,7 +71,7 @@ class Footer extends Component {
                                         </a>
                                     </span>
                                 </div>
-                                <img className='footer__logo' src='/images/logos/home.png' alt='logo'/>
+                                <img className='footer__logo' src='/images/logos/footerLogo.png' alt='logo'/>
                             </section>
                             <section className='YMaps footer__section2'>
                                 <YMaps>
@@ -88,9 +119,13 @@ class Footer extends Component {
                             </section>
                         </div>
                         <div className='footer__copyright'>
-                            &copy; {new Date().getFullYear()} Kars&Manex.<p>&ensp;Բոլոր իրավունքները պաշտպանված են</p>.
+                            &copy; 2021-{new Date().getFullYear()} Kars&Manex.<p>&ensp;Բոլոր իրավունքները պաշտպանված են</p>.
                         </div>
                     </div>
+                </div>
+                <div className="toTop" onClick={this.scrollToTop}
+                     ref={(ref) => this.toTop = ref}>
+                    <FontAwesomeIcon icon={faArrowUp}/>
                 </div>
             </footer>
         );

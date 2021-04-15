@@ -7,12 +7,8 @@ const api = axios.create({
 
 class Users {
 
-    static getUsers(token) {
-        return api.get(`http://localhost:5000/profile`, {
-            headers: {
-                authorization: token,
-            }
-        })
+    static getUsers() {
+        return api.get(`http://localhost:5000/profile`)
     }
 
     static login(email, password) {

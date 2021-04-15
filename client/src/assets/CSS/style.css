@@ -70,6 +70,30 @@ body {
 
 ::selection {
     background: #2c3e50;
-    color: #ffffff;
+    color: whitesmoke;
 }
 
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    background: black;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #ba0101;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: darkred;
+}
+
+html {
+    scroll-behavior: smooth;
+}

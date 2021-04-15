@@ -1,5 +1,6 @@
 const {Model, DataTypes} = require('sequelize');
 const db = require("../../config/pool");
+const Category = require("../../models/Categories/category");
 const Category_department = require("../../models/Categories/category_department");
 const Category_section = require("../../models/Categories/category_section");
 const Users = require("../../models/Users/user");
@@ -53,7 +54,7 @@ Product.init({
         allowNull: false,
     },
     description: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false,
     },
     location: {
@@ -86,12 +87,18 @@ Product.init({
     modelName: 'products',
 });
 
-Product.belongsTo(Category_department, {
-    foreignKey: 'category_departmentId',
+Product.belongsTo(Category, {
+    foreignKey: 'category_id',
     onUpdate: 'cascade',
     onDelete: 'cascade',
 });
-Category_department.hasOne(Product, {
+Category.hasMany(Product, {
+    foreignKey: 'category_id',
+    onUpdate: 'cascade',
+    onDelete: 'cascade',
+});
+
+Product.belongsTo(Category_department, {
     foreignKey: 'category_departmentId',
     onUpdate: 'cascade',
     onDelete: 'cascade',
@@ -101,24 +108,18 @@ Category_department.hasMany(Product, {
     foreignKey: 'category_departmentId',
     onUpdate: 'cascade',
     onDelete: 'cascade',
-    as: 'categoryDeps'
 });
+
 Product.belongsTo(Category_section, {
     foreignKey: 'c_section',
     onUpdate: 'cascade',
     onDelete: 'cascade',
-});
-Category_section.hasOne(Product, {
-    foreignKey: 'c_section',
-    onUpdate: 'cascade',
-    onDelete: 'cascade',
-    as: 'categorySection'
+    as: 'categorySec'
 });
 Category_section.hasMany(Product, {
     foreignKey: 'c_section',
     onUpdate: 'cascade',
     onDelete: 'cascade',
-    as: 'categorySections'
 });
 
 Product.belongsTo(Users, {
